@@ -13,7 +13,6 @@
 
 <style>
     .authors {
-        background-color: #eee;
         padding: 10px;
     }
 </style>
