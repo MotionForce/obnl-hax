@@ -1,5 +1,5 @@
 <script>
-    let authorNames = ["Andrey Kovalskiy", "Émilien Lavallée"];
+    let authorNames = ["Lorem", "ipsum", "dolor", "sit", "amet"];
 </script>
 
 <div class="authors">
