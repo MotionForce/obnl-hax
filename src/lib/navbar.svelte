@@ -1,10 +1,11 @@
 <!--suppress ALL -->
 <div class="navbar">
     <div class="icon">
+        <img src="/work-in-progress.png" alt="WIP">
     </div>
     <div class="links">
-        <a href="#/about">About</a>
-        <a class="/" href="#home">Home</a>
+        <a href="/about">About</a>
+        <a href="/">Home</a>
     </div>
 </div>
 
@@ -37,4 +38,11 @@
         color: white;
     }
 
+    img {
+        width: 25px;
+        height: 25px;
+        margin: 10px;
+        padding: 0;
+        position: absolute;
+    }
 </style>
