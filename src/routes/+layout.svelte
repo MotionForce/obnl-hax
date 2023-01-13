@@ -22,6 +22,6 @@
         left: 50%;
         text-align: center;
         margin-top: 2em;
-
     }
+
 </style>
