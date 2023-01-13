@@ -4,7 +4,7 @@
         <img src="/work-in-progress.png" alt="WIP">
     </div>
     <div class="links">
-        <a href="/about">About</a>
+        <a href="/petitions">Petitions</a>
         <a href="/">Home</a>
     </div>
 </div>
