@@ -22,6 +22,7 @@
                 content: req.content,
                 signers: req.signers,
                 creator: req.creator_name,
+                created: req.created,
             }
         } catch (err) {
             failed_fetch = true;
@@ -46,6 +47,12 @@
         }
     }
 
+    function parseDate(date) {
+        console.log(date)
+        let d = new Date(date)
+        return d.toLocaleDateString()
+    }
+
     fetch_petition()
 
 </script>
@@ -59,6 +66,7 @@
             {/if}
         </div>
         <p>Created by {petition.creator}</p>
+        <p>{parseDate(petition.created)}</p>
     </div>
     <div class="content">
         <p>{petition.content}</p>

@@ -4,6 +4,8 @@
 
     let petition_list = []
     let failed = false
+    let logged_in = pb.authStore.isValid
+    let _admin = false;
 
     async function fetch_list() {
         try {
@@ -25,10 +27,22 @@
         }
     }
 
+    setInterval(() => {
+        logged_in = pb.authStore.isValid
+        if (logged_in) {
+            _admin = pb.authStore.model.admin
+        }
+    }, 1000)
+
     fetch_list()
 </script>
 
-<h1>Pétitions:</h1>
+<div class="head">
+    <h1>Pétitions:</h1>
+    {#if logged_in}
+        <button on:click={() => window.location.href = "/petitions/create"}>Créer une pétition</button>
+    {/if}
+</div>
 <div class="petitions">
     {#each petition_list as petition}
         <div class="petition">
@@ -46,6 +60,22 @@
 </div>
 
 <style>
+    .head {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+    }
+
+    .head h1 {
+        margin-right: auto;
+    }
+
+    .head button {
+        margin-top: 30px;
+        margin-bottom: 20px;
+        margin-right: 20px;
+    }
+
     .petitions {
         display: flex;
         flex-direction: column;

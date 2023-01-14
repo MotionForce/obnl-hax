@@ -12,7 +12,7 @@
 
     setInterval(() => {
         logged_in = pb.authStore.isValid
-        if (logged_in){
+        if (logged_in) {
             _admin = pb.authStore.model.admin
         }
     }, 1000)
@@ -37,13 +37,7 @@
                 <a href="/login">Se connecter</a>
             {/if}
         </div>
-        {#if logged_in === true}
-            <a href="/petitions/create">Créer une pétition</a>
-        {/if}
         <a href="/petitions">Pétitions</a>
-        {#if logged_in === true && _admin === true}
-            <a href="/blog/create">Post sur le blog</a>
-        {/if}
         <a href="/blog">Blog</a>
     </div>
 </div>

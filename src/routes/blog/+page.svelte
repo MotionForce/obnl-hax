@@ -4,6 +4,9 @@
     let blog_posts = []
     let failed_fetch = false;
 
+    let logged_in = pb.authStore.isValid
+    let _admin = false;
+
     async function fetch_posts() {
         try {
             const list = await pb.collection("blog_posts").getList(1, 100, {
@@ -15,6 +18,7 @@
                     title: element.title,
                     content: element.content,
                     id: element.id,
+                    created: element.created,
                 })
             }
             blog_posts = temp
@@ -23,10 +27,28 @@
         }
     }
 
+    setInterval(() => {
+        logged_in = pb.authStore.isValid
+        if (logged_in) {
+            _admin = pb.authStore.model.admin
+        }
+    }, 1000)
+
+    function parseDate (date) {
+        let d = new Date(date)
+        return d.toLocaleDateString()
+    }
+
     fetch_posts()
 </script>
 
-<h1>Nouvelles:</h1>
+<div class="head">
+    <h1>Nouvelles:</h1>
+    {#if _admin && logged_in}
+        <button on:click={() => window.location.href = "/blog/create"}>Créer un post</button>
+        <p></p>
+    {/if}
+</div>
 <div class="blogs">
     {#each blog_posts as blog}
         <div class="blog">
@@ -34,6 +56,7 @@
                 <div class="title-level">
                     <details>
                         <summary>{blog.title}</summary>
+                        <p>{parseDate(blog.created)}</p>
                         <p>{blog.content}</p>
                     </details>
                 </div>
@@ -43,6 +66,22 @@
 </div>
 
 <style>
+    .head {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .head h1 {
+        margin-right: auto;
+    }
+
+    .head button {
+        margin-top: 30px;
+        margin-bottom: 20px;
+        margin-right: 20px;
+    }
+
     .blogs {
         display: flex;
         flex-direction: column;
