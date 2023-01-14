@@ -26,7 +26,7 @@
         <input type="password" bind:value={password}>
     </div>
     <div class="submit">
-        <button on:click={login}>Se connecter</button>
+        <a href="/"><button on:click={login}>Se connecter</button></a>
     </div>
     <div class="sign-up">
         <p id="sign-up">Pas encore de compte ? <a href="/signup">Inscrivez-vous</a></p>
