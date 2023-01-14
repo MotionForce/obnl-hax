@@ -33,7 +33,7 @@
         margin: 50px 20px 20px;
         font-size: x-large;
         background-color: #f5f5f5;
-        border-radius: 10px;
+        border-radius: 15px;
         padding-bottom: 10px;
     }
 
