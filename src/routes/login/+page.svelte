@@ -56,6 +56,10 @@
         margin-right: 10px;
     }
 
+    input {
+        border-radius: 5px;
+    }
+
     button {
         background-color: #4CAF50;
         border: none;
