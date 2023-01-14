@@ -6,6 +6,7 @@
 
     function sign_out() {
         pb.authStore.clear()
+        logged_in = false
     }
 </script>
 

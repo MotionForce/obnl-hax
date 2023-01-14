@@ -10,14 +10,16 @@
             const list = await pb.collection("petitions").getList(1, 100, {
                 sort: "-created"
             })
+            let temp = []
             for (const element of list.items){
-                petition_list.push({
+                temp.push({
                     title: element.title,
                     content: element.content,
                     creator_name: element.creator_name,
                     id: element.id
                 })
             }
+            petition_list = temp
         }catch(err)
         {
             failed = true;
