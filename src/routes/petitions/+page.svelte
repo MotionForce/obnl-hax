@@ -52,7 +52,7 @@
             </div>
             <div class="petition-button">
                 <a href="/petitions/{petition.id}">
-                    <button>Open petition</button>
+                    <button>Voir la pétition</button>
                 </a>
             </div>
         </div>

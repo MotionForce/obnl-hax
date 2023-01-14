@@ -65,14 +65,14 @@
                 <button on:click={sign}>Signer</button>
             {/if}
         </div>
-        <p>Created by {petition.creator}</p>
+        <p>Créé par {petition.creator}</p>
         <p>{parseDate(petition.created)}</p>
     </div>
     <div class="content">
         <p>{petition.content}</p>
     </div>
     <div class="signers">
-        <h6>Signers: </h6>
+        <h6>Signataire: </h6>
         <ul>
             {#each petition.signers as signer}
                 <li><p>{signer}</p></li>
@@ -80,7 +80,7 @@
         </ul>
     </div>
     <div class="buttons">
-        <button on:click={fetch_petition}>Rafraichir</button>
+        <button on:click={fetch_petition}>Rafraîchir</button>
         {#if !signed}
             <button on:click={sign}>Signer</button>
         {/if}
