@@ -3,10 +3,15 @@
 
     let email = ""
     let password = ""
+    let failed = false
 
     async function login() {
-        const authData = await pb.collection("users").authWithPassword(email, password)
-        console.log(pb.authStore.isValid)
+        try{
+            const authData = await pb.collection("users").authWithPassword(email, password)
+            console.log(pb.authStore.isValid)
+        }catch(err){
+            failed = true
+        }
     }
 </script>
 
