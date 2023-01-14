@@ -54,6 +54,7 @@
                 <a href="/login">{$_('navbar.login').replace("navbar.", "")}</a>
             {/if}
         </div>
+        <a href="/news">{$_('navbar.news').replace("navbar.", "")}</a>
         <a href="/petitions">{$_('navbar.petitions').replace("navbar.", "")}</a>
         <a href="/blog">{$_('navbar.blog').replace("navbar.", "")}</a>
     </div>

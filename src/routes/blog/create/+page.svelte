@@ -1,5 +1,6 @@
 <script>
     import {pb} from "$lib/auth.js"
+    import {_} from "svelte-i18n";
 
     let title = ""
     let content = ""
@@ -17,25 +18,24 @@
     }
 </script>
 <div class="create-blog-form">
-    <h1>Faire un post</h1>
+    <h1>{$_('blog.make.title').replace("blog.make.", "")}</h1>
     <div class="title">
-        <label for="title">Titre</label>
+        <label for="title">{$_('blog.make.titleInput').replace("blog.make.", "")}</label>
         <input type="text" name="title" bind:value={title}>
     </div>
     <div class="content">
-        <label for="content">Contenu</label>
+        <label for="content">{$_('blog.make.contentInput').replace("blog.make.", "")}</label>
         <textarea name="content" bind:value={content}></textarea>
     </div>
     <div class="submit">
         {#if content.length < 100 && title.length < 10}
-            <p class="error">Le titre doit être au moins 10 caractères de long et le contenu doit faire au moins 100
-                caractères.</p>
+            <p class="error">{$_('blog.make.dMin').replace("blog.make.", "")}</p>
         {:else if content.length < 100 && title.length >= 10}
-            <p class="error">Le contenu doit faire au moins 100 caractères.</p>
+            <p class="error">{$_('blog.make.cMin').replace("blog.make.", "")}</p>
         {:else if content.length >= 100 && title.length < 10}
-            <p class="error">Le titre doit être au moins 10 caractères de long.</p>
+            <p class="error">{$_('blog.make.tMin').replace("blog.make.", "")}</p>
         {:else}
-            <a href="/blog" on:click={create} id="submit-button"><button>Publier</button></a>
+            <a href="/blog" on:click={create} id="submit-button"><button>{$_('blog.make.submit').replace("blog.make.", "")}</button></a>
         {/if}
     </div>
 </div>

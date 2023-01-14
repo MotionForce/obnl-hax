@@ -1,5 +1,6 @@
 <script>
     import {pb} from "$lib/auth.js"
+    import {_} from "svelte-i18n";
 
     let title = ""
     let content = ""
@@ -22,25 +23,24 @@
 
 </script>
 <div class="create-petition-form">
-    <h1>Créer une pétition</h1>
+    <h1>{$_('petitions.c.title').replace("petitions.c.", "")}</h1>
     <div class="title">
-        <label for="title">Titre</label>
+        <label for="title">{$_('petitions.c.titleInput').replace("petitions.c.", "")}</label>
         <input type="text" name="title" bind:value={title}>
     </div>
     <div class="content">
-        <label for="content">Contenu</label>
+        <label for="content">{$_('petitions.c.contentInput').replace("petitions.c.", "")}</label>
         <textarea name="content" bind:value={content}></textarea>
     </div>
     <div class="submit">
         {#if content.length < 100 && title.length < 10}
-            <p class="error">Le titre doit être au moins 10 caractères de long et le contenu doit faire au moins 100
-                caractères.</p>
+            <p class="error">{$_('petitions.c.dMin').replace("petitions.c.", "")}</p>
         {:else if content.length < 100 && title.length >= 10}
-            <p class="error">Le contenu doit faire au moins 100 caractères.</p>
+            <p class="error">{$_('petitions.c.cMin').replace("petitions.c.", "")}</p>
         {:else if content.length >= 100 && title.length < 10}
-            <p class="error">Le titre doit être au moins 10 caractères de long.</p>
+            <p class="error">{$_('petitions.c.tMin').replace("petitions.c.", "")}</p>
         {:else}
-            <a href="/petitions" on:click={publish_petition} id="submit-button"><button>Publier</button></a>
+            <a href="/petitions" on:click={publish_petition} id="submit-button"><button>{$_('petitions.c.submit').replace("petitions.c.", "")}</button></a>
         {/if}
     </div>
 </div>

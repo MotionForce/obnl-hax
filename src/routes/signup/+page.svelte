@@ -1,5 +1,6 @@
 <script>
     import {pb} from "$lib/auth.js"
+    import {_} from "svelte-i18n";
 
     let name = ""
     let email = ""
@@ -30,30 +31,30 @@
 </script>
 
 <div class="sign-up-form">
-    <h1>Créer un compte</h1>
+    <h1>{$_('signup.title').replace("signup.", "")}</h1>
     <div class="username">
-        <label for="username">Nom d'utilisateur</label>
+        <label for="username">{$_('signup.username').replace("signup.", "")}</label>
         <input type="text" name="username" id="username" bind:value={name}>
     </div>
     <div class="email">
-        <label for="email">Courriel</label>
+        <label for="email">{$_('signup.email').replace("signup.", "")}</label>
         <input type="email" name="email" id="email" bind:value={email}>
     </div>
     <div class="password">
-        <label for="password">Mot de Passe</label>
+        <label for="password">{$_('signup.password').replace("signup.", "")}</label>
         <input type="password" name="password" id="password" bind:value={password}>
     </div>
     <div class="confirm-password">
-        <label for="confirm-password">Confirmer le mot de passe</label>
+        <label for="confirm-password">{$_('signup.passwordConfirm').replace("signup.", "")}</label>
         <input type="password" name="confirm-password" id="confirm-password" bind:value={passwordConfirm}>
     </div>
     <div class="confirm-password-text">
         {#if password !== passwordConfirm}
-            <p>Les mots de passe ne sont pas identiques!</p>
+            <p>{$_('signup.passwordMatch').replace("signup.", "")}</p>
         {/if}
     </div>
     <div class="submit">
-        <button on:click={er = signup}>S'inscrire</button>
+        <button on:click={er = signup}>{$_('signup.submit').replace("signup.", "")}</button>
     </div>
     <div class="error">
         {#if failed}

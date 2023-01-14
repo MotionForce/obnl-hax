@@ -1,5 +1,6 @@
 <script>
     import {pb} from "$lib/auth.js"
+    import {_} from "svelte-i18n";
 
     let email = ""
     let password = ""
@@ -16,22 +17,22 @@
 </script>
 
 <div class="login-form">
-    <h1>Connection</h1>
+    <h1>{$_('login.title').replace("login.", "")}</h1>
     <div class="email">
-        <p>Addresse courriel</p>
+        <p>{$_('login.email').replace("login.", "")}</p>
         <input type="email" bind:value={email}>
     </div>
     <div class="password">
-        <p>Mot de passe</p>
+        <p>{$_('login.password').replace("login.", "")}</p>
         <input type="password" bind:value={password}>
     </div>
     <div class="submit">
         <a href="/">
-            <button on:click={login}>Se connecter</button>
+            <button on:click={login}>{$_('login.connect').replace("login.", "")}</button>
         </a>
     </div>
     <div class="sign-up">
-        <p id="sign-up">Pas encore de compte ? <a href="/signup">Inscrivez-vous</a></p>
+        <p id="sign-up">{$_('login.registerTitle').replace("login.", "")}<a href="/signup">{$_('login.register').replace("login.", "")}</a></p>
     </div>
 </div>
 
