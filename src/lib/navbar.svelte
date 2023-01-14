@@ -1,7 +1,7 @@
 <!--suppress ALL -->
 <div class="navbar">
     <div class="icon">
-        <img src="/work-in-progress.png" alt="WIP">
+        <img src="/favicon.png" alt="WIP">
     </div>
     <div class="links">
         <a href="/petitions">Petitions</a>
