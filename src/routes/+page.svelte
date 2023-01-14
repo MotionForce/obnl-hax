@@ -4,7 +4,7 @@
 
 <div class="main-content">
     <h1>Petition Manager</h1>
-    <a href="/login"><button>Login</button></a>
+    <a href="/login"><button>Se connecter</button></a>
 </div>
 
 <style>
