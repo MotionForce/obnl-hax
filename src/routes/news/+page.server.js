@@ -10,6 +10,7 @@ export async function load({ params }) {
         q: "child",
         pageSize: 100,
         page: 1,
+        sortBy: "date"
     }).then((response) => {
         apiRes = response
     })

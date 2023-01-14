@@ -40,4 +40,8 @@
         cursor: pointer;
     }
 
+    :global(button:hover){
+        transform: translateY(3px);
+    }
+
 </style>
