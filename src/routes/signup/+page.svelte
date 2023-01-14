@@ -31,7 +31,7 @@
 
 <div class="sign-up-form">
     <h1>Créer un compte</h1>
-    <div class="usename">
+    <div class="username">
         <label for="username">Nom d'utilisateur</label>
         <input type="text" name="username" id="username" bind:value={name}>
     </div>
@@ -63,6 +63,9 @@
 </div>
 
 <style>
+    h1{
+        font-weight: 900;
+    }
     .sign-up-form {
         display: flex;
         flex-direction: column;
@@ -109,7 +112,7 @@
 
     button {
         background-color: #4CAF50;
-        border: none;
+        border-color: #000;
         color: white;
         padding: 15px 32px;
         text-align: center;
@@ -118,6 +121,7 @@
         font-size: 16px;
         margin: 4px 2px;
         cursor: pointer;
+        box-shadow: 4px 5px 0px #000;
         border-radius: 10px;
     }
 </style>

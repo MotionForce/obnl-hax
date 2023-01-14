@@ -10,8 +10,11 @@
 </main>
 
 <style>
+
+    @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700,800,900');
+    
     * {
-        font-family: "Arial Rounded MT Light", Arial, sans-serif;
+        font-family: 'Poppins', sans-serif;
     }
 
     :global(body) {
