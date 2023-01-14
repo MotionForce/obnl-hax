@@ -4,6 +4,7 @@
         <img src="/favicon.png" alt="WIP">
     </div>
     <div class="links">
+        <a href="/login">Login</a>
         <a href="/petitions">Petitions</a>
         <a href="/">Home</a>
     </div>

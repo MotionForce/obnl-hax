@@ -21,7 +21,7 @@ nom <input bind:value={name}><br>
 addresse courriel <input bind:value={email}><br>
 mot de passe <input type="password" bind:value={password}><br>
 confirmez le mot de passe <input type="password" bind:value={passwordConfirm}><br>
-{#if password != passwordConfirm}
+{#if password !== passwordConfirm}
 <br>
 Les mots de passe ne sont pas identiques!
 {/if}
