@@ -50,9 +50,9 @@
 
 </script>
 
-<div className="petition">
-    <div className="title">
-        <div className="title-h1-group">
+<div class="petition">
+    <div class="title">
+        <div class="title-h1-group">
             <h1>{petition.title}</h1>
             {#if !signed}
                 <button on:click={sign}>Signer</button>
