@@ -1,27 +1,37 @@
-<script>
-    //DO NOT FORGET: change uncomment next statement after back-end is done
-    // export let petitions;
+<script lang="ts">
+    import {pb} from "$lib/auth.js"
+    import model from "pocketbase"
 
-    export let petitions = [
+    let petition_list = []
+    let failed = false
+
+    async function fetch_list(){
+        try{
+            const list = await pb.collection("petitions").getList(1, 100, {
+                sort: "-created"
+            })
+            for (const element of list.items){
+                petition_list.push({
+                    title: element.title,
+                    content: element.content,
+                    creator_name: element.creator_name,
+                    id: element.id
+                })
+            }
+        }catch(err)
         {
-            id: 1,
-            title: "Petition 1",
-            user: "user1",
-        },
-        {
-            id: 2,
-            title: "Petition 2",
-            user: "user2",
-        }];
+            failed = true;
+        }
+    }
+    fetch_list()
 </script>
-
 <h1>Petitions:</h1>
 <div class="petitions">
-    {#each petitions as petition}
+    {#each petition_list as petition}
         <div class="petition">
             <div class="petition-text">
                 <h2>{petition.title}</h2>
-                <p>{petition.user}</p>
+                <p>{petition.creator_name}</p>
             </div>
             <div class="petition-button">
                 <a href="/petitions/{petition.id}">
