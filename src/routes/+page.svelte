@@ -3,8 +3,10 @@
 </script>
 
 <div class="main-content">
-    <h1>Petition Manager</h1>
-    <a href="/login"><button>Se connecter</button></a>
+    <h1>Pétition Manager</h1>
+    <a href="/login">
+        <button>Se connecter</button>
+    </a>
 </div>
 
 <style>

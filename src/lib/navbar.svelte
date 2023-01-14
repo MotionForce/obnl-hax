@@ -24,7 +24,7 @@
         </div>
         <a href="/login">Se connecter</a>
         <a href="/petitions/create">Créer une pétition</a>
-        <a href="/petitions">Petitions</a>
+        <a href="/petitions">Pétitions</a>
         <a href="/">Home</a>
         <div class="logout">
             {#if logged_in === true}
