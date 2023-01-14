@@ -1,6 +1,7 @@
 <script lang="ts">
     import {pb} from "$lib/auth.js"
     import model from "pocketbase"
+    import {_} from "svelte-i18n";
 
     let petition_list = []
     let failed = false
@@ -38,9 +39,9 @@
 </script>
 
 <div class="head">
-    <h1>Pétitions:</h1>
+    <h1>{$_('petitions.title').replace("petitions.", "")}</h1>
     {#if logged_in}
-        <button on:click={() => window.location.href = "/petitions/create"}>Créer une pétition</button>
+        <button on:click={() => window.location.href = "/petitions/create"}>{$_('petitions.create').replace("petitions.", "")}</button>
     {/if}
 </div>
 <div class="petitions">
@@ -52,7 +53,7 @@
             </div>
             <div class="petition-button">
                 <a href="/petitions/{petition.id}">
-                    <button>Voir la pétition</button>
+                    <button>{$_('petitions.view').replace("petitions.", "")}</button>
                 </a>
             </div>
         </div>

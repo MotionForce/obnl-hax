@@ -1,5 +1,6 @@
 <script>
     import {pb} from "$lib/auth.js"
+    import {_} from "svelte-i18n";
 
     let blog_posts = []
     let failed_fetch = false;
@@ -43,9 +44,9 @@
 </script>
 
 <div class="head">
-    <h1>Nouvelles:</h1>
+    <h1>{$_('blog.title').replace("blog.", "")}</h1>
     {#if _admin && logged_in}
-        <button on:click={() => window.location.href = "/blog/create"}>Créer un post</button>
+        <button on:click={() => window.location.href = "/blog/create"}>{$_('blog.create').replace("blog.", "")}</button>
         <p></p>
     {/if}
 </div>

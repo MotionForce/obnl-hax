@@ -1,21 +1,25 @@
 <script>
 
+    import {_} from "svelte-i18n";
+
     export let data
 
 </script>
+
 <div class="header">
-    <h1>Nouvelles</h1>
+    <h1>{$_('news.title').replace("news.", "")}</h1>
 </div>
 <div class="content">
     {#each data.post.apiRes.articles as article}
         <div class="article-wrapper">
             <div class="article">
                 <h4>{article.title}</h4>
-                <p>{article.description}</p> <a href={article.url}><button>Lire sur {article.source.name}</button></a>
+                <p>{article.description}</p> <a href={article.url}><button>{$_('news.read').replace("news.", "")}{article.source.name}</button></a>
             </div>
         </div>
     {/each}
 </div>
+
 <style>
     .content {
         display: flex;
@@ -41,5 +45,9 @@
     button{
         margin-top: 10px;
         background-color: #f8fd00;
+    }
+
+    h1 {
+        margin-left: 20px;
     }
 </style>

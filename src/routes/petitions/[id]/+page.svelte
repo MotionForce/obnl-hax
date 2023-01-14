@@ -1,6 +1,7 @@
 <script lang="ts">
     import {pb} from "$lib/auth.js"
     import {construct_svelte_component, identity} from "svelte/internal";
+    import {_} from "svelte-i18n";
 
     export let data
     let petition = {
@@ -62,17 +63,17 @@
         <div class="title-h1-group">
             <h1>{petition.title}</h1>
             {#if !signed}
-                <button on:click={sign}>Signer</button>
+                <button on:click={sign}>{$_('petitions.v.sign').replace("petitions.v.", "")}</button>
             {/if}
         </div>
-        <p>Créé par {petition.creator}</p>
+        <p>{$_('petitions.v.createdBy').replace("petitions.v.", "")}{petition.creator}</p>
         <p>{parseDate(petition.created)}</p>
     </div>
     <div class="content">
         <p>{petition.content}</p>
     </div>
     <div class="signers">
-        <h6>Signataire: </h6>
+        <h6>{$_('petitions.v.signers').replace("petitions.v.", "")}</h6>
         <ul>
             {#each petition.signers as signer}
                 <li><p>{signer}</p></li>
@@ -80,20 +81,20 @@
         </ul>
     </div>
     <div class="buttons">
-        <button on:click={fetch_petition}>Rafraîchir</button>
+        <button on:click={fetch_petition}>{$_('petitions.v.refresh').replace("petitions.v.", "")}</button>
         {#if !signed}
-            <button on:click={sign}>Signer</button>
+            <button on:click={sign}>{$_('petitions.v.sign').replace("petitions.v.", "")}</button>
         {/if}
     </div>
     <div>
         {#if failed_fetch}
-            <p>Failed to fetch petition</p>
+            <p>{$_('petitions.v.failFetch').replace("petitions.v.", "")}</p>
         {/if}
         {#if failed_sign}
-            <p>Failed to sign petition</p>
+            <p>{$_('petitions.v.failSign').replace("petitions.v.", "")}</p>
         {/if}
         {#if already_signed}
-            <p>You already signed this petition</p>
+            <p>{$_('petitions.v.alreadySign').replace("petitions.v.", "")}</p>
         {/if}
     </div>
 </div>

@@ -1,8 +1,12 @@
+<script>
+    import {_} from "svelte-i18n";
+</script>
+
 <div class="content">
-    <h1>Déconnecté</h1>
-    <p>Vous avez été déconnecté avec succès.</p><a href="/">
-        <button>Retour à l'accueil</button>
-    </a>
+    <h1>{$_('signout.title').replace("signout.", "")}</h1>
+    <p>{$_('signout.message').replace("signout.", "")}</p><a href="/">
+    <button>{$_('signout.home').replace("signout.", "")}</button>
+</a>
 </div>
 
 <style>
