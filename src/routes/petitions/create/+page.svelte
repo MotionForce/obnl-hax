@@ -4,12 +4,22 @@
     let title = ""
     let content = ""
 
-    async function publish_petition() {
+    let failed = false
 
+    async function publish_petition(){
+        try{
+            await pb.collection("petitions").create({
+                title: title,
+                content: content,
+                creator_name: pb.authStore.model.name,
+                signers: []
+            })
+        }catch(err){
+            failed = true
+        }
     }
 
 </script>
-
 <div class="create-petition-form">
     <h1>Créer une pétition</h1>
     <div class="title">
@@ -36,42 +46,34 @@
         border-radius: 15px;
         padding-bottom: 10px;
     }
-
     .title {
         display: inline-flex;
         align-items: center;
     }
-
     .title label {
         margin-right: 20px;
     }
-
     .content {
         margin-top: 20px;
         margin-bottom: 20px;
         display: inline-flex;
         align-items: center;
     }
-
     .content textarea {
         width: 500px;
         height: 200px;
         margin-left: 20px;
     }
-
     .submit {
         display: inline-flex;
         align-items: center;
     }
-
     p {
         margin-right: 10px;
     }
-
     input {
         border-radius: 5px;
     }
-
     button {
         background-color: #4CAF50;
         border: none;
