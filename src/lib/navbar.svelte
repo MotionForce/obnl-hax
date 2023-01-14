@@ -41,6 +41,7 @@
             <a href="/petitions/create">Créer une pétition</a>
         {/if}
         <a href="/petitions">Pétitions</a>
+        <a href="/blog">Blog</a>
     </div>
 </div>
 
