@@ -5,13 +5,13 @@
     let petition_list = []
     let failed = false
 
-    async function fetch_list(){
-        try{
+    async function fetch_list() {
+        try {
             const list = await pb.collection("petitions").getList(1, 100, {
                 sort: "-created"
             })
             let temp = []
-            for (const element of list.items){
+            for (const element of list.items) {
                 temp.push({
                     title: element.title,
                     content: element.content,
@@ -20,11 +20,11 @@
                 })
             }
             petition_list = temp
-        }catch(err)
-        {
+        } catch (err) {
             failed = true;
         }
     }
+
     fetch_list()
 </script>
 <h1>Petitions:</h1>
