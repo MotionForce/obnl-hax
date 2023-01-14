@@ -27,6 +27,7 @@
 
     fetch_list()
 </script>
+
 <h1>Pétitions:</h1>
 <div class="petitions">
     {#each petition_list as petition}
