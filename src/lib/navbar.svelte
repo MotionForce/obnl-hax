@@ -1,24 +1,35 @@
 <!--suppress ALL -->
 <script>
-    import { pb } from "$lib/auth.js"
+    import {pb} from "$lib/auth.js"
+
     let logged_in = pb.authStore.isValid
 
-    function sign_out(){
+    function sign_out() {
         pb.authStore.clear()
     }
 </script>
+
 <div class="navbar">
     <div class="icon">
         <img src="/favicon.png" alt="WIP">
     </div>
     <div class="links">
+        <div class="status">
+            {#if logged_in === true}
+                <img src="/account.png" alt="logged in">
+            {/if}
+        </div>
         <a href="/login">Se connecter</a>
         <a href="/petitions/create">Créer une pétition</a>
         <a href="/petitions">Petitions</a>
         <a href="/">Home</a>
+        <div class="logout">
+            {#if logged_in === true}
+                <a href="/logout" id="logout" on:click={sign_out}>Se déconnecter</a>
+            {/if}
+        </div>
     </div>
 </div>
-<button on:click={sign_out}>sign out</button>
 
 <style>
     /* Add a black background color to the top navigation */
@@ -28,7 +39,7 @@
     }
 
     /* Style the links inside the navigation bar */
-    .links a {
+    .links a, .status {
         float: right;
         color: #f2f2f2;
         text-align: left;
@@ -49,11 +60,20 @@
         color: white;
     }
 
-    img {
+    .icon img {
         width: 25px;
         height: 25px;
         margin: 10px;
         padding: 0;
         position: absolute;
+    }
+
+    .status img {
+        width: 25px;
+        height: 25px;
+        margin-right: 10px;
+        margin-bottom: 0;
+        padding: 0;
+        position: static;
     }
 </style>
