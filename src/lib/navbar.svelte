@@ -8,6 +8,8 @@
         pb.authStore.clear()
         logged_in = false
     }
+
+    setInterval(() => {logged_in = pb.authStore.isValid}, 1000)
 </script>
 
 <div class="navbar">

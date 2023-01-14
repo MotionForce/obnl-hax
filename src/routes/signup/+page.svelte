@@ -15,7 +15,8 @@
                 name: name,
                 email: email,
                 password: password,
-                passwordConfirm: passwordConfirm
+                passwordConfirm: passwordConfirm,
+                is_admin: false,
             })
         }catch(err){
             failed = true
