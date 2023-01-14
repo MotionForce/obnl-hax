@@ -1,5 +1,9 @@
 <script>
-    import {pb} from "$lib/auth.js";
+    import {_, dictionary, locale} from 'svelte-i18n';
+    import {pb} from "$lib/auth.js"
+    import translations from "$lib/translation.js"
+
+    dictionary.set(translations)
 
     let logged_in = pb.authStore.isValid
 
@@ -9,14 +13,14 @@
 </script>
 
 <div class="main-content">
-    <h1>Gestionnaire <br> pétition</h1>
+    <h1>{$_('main.title').split(" ")[0]}<br>{$_('main.title').split(" ")[1].replace("main.", "")}</h1>
     {#if logged_in === true}
         <a href="/petitions">
-            <button>Voir les pétitions</button>
+            <button>{$_('main.viewPetitions').replace("main.", "")}</button>
         </a>
     {:else}
         <a href="/login">
-            <button>Se connecter</button>
+            <button>{$_('main.connect').replace("main.", "")}</button>
         </a>
     {/if}
 </div>

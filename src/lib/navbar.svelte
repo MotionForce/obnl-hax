@@ -1,6 +1,12 @@
 <!--suppress ALL -->
 <script>
     import {pb} from "$lib/auth.js"
+    import {_, dictionary, locale} from 'svelte-i18n'
+    import translations from "$lib/translation.js"
+
+    dictionary.set(translations)
+    const locales = Object.keys(translations)
+    locale.set('fr')
 
     let logged_in = pb.authStore.isValid
     let _admin = false;
@@ -30,15 +36,26 @@
                 <img src="/account.png" alt="logged in">
             {/if}
         </div>
-        <div class="logout">
-            {#if logged_in === true}
-                <a href="/sign-out" id="logout" on:click={sign_out}>Se déconnecter</a>
+        <div class="lang">
+            {#if $_('main.title') === 'Gestionnaire Pétition'}
+                <a>
+                    <button on:click={() => locale.set('en')}>EN</button>
+                </a>
             {:else}
-                <a href="/login">Se connecter</a>
+                <a>
+                    <button on:click={() => locale.set('fr')}>FR</button>
+                </a>
             {/if}
         </div>
-        <a href="/petitions">Pétitions</a>
-        <a href="/blog">Blog</a>
+        <div class="logout">
+            {#if logged_in === true}
+                <a href="/sign-out" id="logout" on:click={sign_out}>{$_('navbar.logout').replace("navbar.", "")}</a>
+            {:else}
+                <a href="/login">{$_('navbar.login').replace("navbar.", "")}</a>
+            {/if}
+        </div>
+        <a href="/petitions">{$_('navbar.petitions').replace("navbar.", "")}</a>
+        <a href="/blog">{$_('navbar.blog').replace("navbar.", "")}</a>
     </div>
 </div>
 
@@ -58,6 +75,17 @@
         color: black;
         text-align: left;
         padding: 14px 16px;
+        text-decoration: none;
+        font-weight: 700;
+        text-transform: uppercase;
+        font-size: 17px;
+    }
+
+    .links p {
+        float: right;
+        color: black;
+        text-align: left;
+        padding: 0;
         text-decoration: none;
         font-weight: 700;
         text-transform: uppercase;
@@ -92,5 +120,17 @@
         margin-bottom: o;
         padding: 0;
         position: static;
+    }
+
+    .lang {
+        margin-right: 10px;
+    }
+
+    .lang button {
+        background: transparent;
+        border: none !important;
+        font-size: 10;
+        box-shadow: none !important;
+        padding: 0;
     }
 </style>
