@@ -17,8 +17,10 @@
                     id: element.id,
                 })
             }
+            blog_posts = temp
         }catch(err){
             failed_fetch = true;
         }
     }
+    fetch_posts()
 </script>
