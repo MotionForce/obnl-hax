@@ -9,12 +9,16 @@
         logged_in = false
     }
 
-    setInterval(() => {logged_in = pb.authStore.isValid}, 1000)
+    setInterval(() => {
+        logged_in = pb.authStore.isValid
+    }, 1000)
 </script>
 
 <div class="navbar">
     <div class="icon">
-        <img src="/favicon.png" alt="WIP">
+        <a href="/">
+            <img src="/favicon.png" alt="logo">
+        </a>
     </div>
     <div class="links">
         <div class="status">
@@ -22,15 +26,17 @@
                 <img src="/account.png" alt="logged in">
             {/if}
         </div>
-        <a href="/login">Se connecter</a>
-        <a href="/petitions/create">Créer une pétition</a>
-        <a href="/petitions">Pétitions</a>
-        <a href="/">Home</a>
         <div class="logout">
             {#if logged_in === true}
                 <a href="/sign-out" id="logout" on:click={sign_out}>Se déconnecter</a>
+            {:else}
+                <a href="/login">Se connecter</a>
             {/if}
         </div>
+        {#if logged_in === true}
+            <a href="/petitions/create">Créer une pétition</a>
+        {/if}
+        <a href="/petitions">Pétitions</a>
     </div>
 </div>
 
@@ -64,9 +70,10 @@
     }
 
     .icon img {
-        width: 25px;
-        height: 25px;
+        width: 40px;
+        height: 40px;
         margin: 10px;
+        margin-top: 7px;
         padding: 0;
         position: absolute;
     }
@@ -75,7 +82,7 @@
         width: 25px;
         height: 25px;
         margin-right: 10px;
-        margin-bottom: 0;
+        margin-bottom: o;
         padding: 0;
         position: static;
     }

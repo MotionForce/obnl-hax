@@ -32,35 +32,52 @@
         <textarea name="content" bind:value={content}></textarea>
     </div>
     <div class="submit">
-        {#if content.length < 100 || title.length < 10}
+        {#if content.length < 100 && title.length < 10}
             <p class="error">Le titre doit être au moins 10 caractères de long et le contenu doit faire au moins 100
                 caractères.</p>
+        {:else if content.length < 100 && title.length >= 10}
+            <p class="error">Le contenu doit faire au moins 100 caractères.</p>
+        {:else if content.length >= 100 && title.length < 10}
+            <p class="error">Le titre doit être au moins 10 caractères de long.</p>
         {:else}
-            <a href="/petitions" on:click={publish_petition} id="submit-button">Publier</a>
+            <a href="/petitions" on:click={publish_petition} id="submit-button"><button>Publier</button></a>
         {/if}
     </div>
 </div>
 
 <style>
+    @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700,800,900');
+
     .create-petition-form {
         display: flex;
         flex-direction: column;
         align-items: center;
-        margin: 50px 20px 20px;
+        margin: 20px 20px 20px;
         font-size: x-large;
-        background-color: #f5f5f5;
-        border-radius: 15px;
+        background-color: #4ac23c;
+        border-radius: 10px;
+        border: 1px solid #000000;
+        box-shadow: black 5px 5px;
         padding-bottom: 10px;
     }
 
     .title {
         display: inline-flex;
         align-items: center;
-        margin-right: 260px;
+        margin-left: 50px;
     }
 
     .title label {
         margin-right: 20px;
+    }
+
+    .title input {
+        width: 450px;
+        box-shadow: black 5px 5px;
+        font-family: 'Poppins', sans-serif;
+        font-size: 16px;
+        padding: 10px;
+        border: 20px;
     }
 
     .content {
@@ -68,14 +85,19 @@
         margin-bottom: 20px;
         margin-left: 50px;
         display: inline-flex;
-        align-items: center;
+        flex-direction: column;
     }
 
     .content textarea {
         width: 500px;
         height: 200px;
         margin-left: 20px;
+        margin-top: 5px;
         border-radius: 10px;
+        box-shadow: black 5px 5px;
+        padding: 10px;
+        font-family: 'Poppins', sans-serif;
+        resize: none;
     }
 
     .submit {
@@ -93,21 +115,18 @@
     }
 
     button {
-        background-color: #4CAF50;
-        border: none;
-        color: white;
-        padding: 15px 32px;
-        text-align: center;
-        text-decoration: none;
-        display: inline-block;
-        font-size: 16px;
         margin: 4px 2px;
-        cursor: pointer;
-        border-radius: 10px;
     }
 
     .error {
-        margin-top: 0;
+        margin-top: 16px;
+        margin-bottom: 17px;
         font-size: smaller;
     }
+
+    h1 {
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
 </style>
