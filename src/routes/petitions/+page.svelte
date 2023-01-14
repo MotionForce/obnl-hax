@@ -56,8 +56,10 @@
         display: inline;
         width: 100%;
         margin: 10px;
-        background-color: rgba(87, 192, 45, 0.52);
+        background-color: #4ac23c;
         border-radius: 10px;
+        border: 1px solid #000000;
+        box-shadow: black 5px 5px;
     }
 
     .petition-text {
@@ -66,6 +68,7 @@
 
     .petition-button {
         float: right;
+        margin-right: 5px;
     }
 
     h2 {
@@ -79,12 +82,7 @@
     button {
         margin-right: 10px;
         margin-left: auto;
-        margin-top: 10%;
-        padding: 8px;
-        background-color: rgba(87, 192, 45, 0.65);
-        font-size: 100%;
-        border: 0;
-        border-radius: 10px;
+        margin-top: 8%;
     }
 
     p {

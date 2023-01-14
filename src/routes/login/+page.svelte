@@ -40,9 +40,9 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        margin-top: 100px;
+        margin-top: 50px;
         font-size: x-large;
-        color: #2c2c2c;
+        color: #212121;
     }
 
     .email {
@@ -73,19 +73,7 @@
     }
 
     button {
-        background-color: #4CAF50;
-        border-color: #000;
-        color: white;
-        padding: 15px 32px;
-        text-align: center;
-        text-decoration: none;
-        display: inline-block;
-        font-size: 16px;
         margin: 4px 2px;
-        cursor: pointer;
-        box-shadow: 4px 5px 0 #000;
-        border-radius: 10px;
-        text-shadow: 1px 1px 1px #000;
     }
 
     .sign-up {

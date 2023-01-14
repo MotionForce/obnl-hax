@@ -3,18 +3,26 @@
     import {pb} from "$lib/auth.js"
 
     let logged_in = pb.authStore.isValid
+    let _admin = false;
 
     function sign_out() {
         pb.authStore.clear()
         logged_in = false
     }
 
-    setInterval(() => {logged_in = pb.authStore.isValid}, 1000)
+    setInterval(() => {
+        logged_in = pb.authStore.isValid
+        if (logged_in){
+            _admin = pb.authStore.model.admin
+        }
+    }, 1000)
 </script>
 
 <div class="navbar">
     <div class="icon">
-        <img src="/favicon.png" alt="WIP">
+        <a href="/">
+            <img src="/favicon.png" alt="logo">
+        </a>
     </div>
     <div class="links">
         <div class="status">
@@ -22,38 +30,42 @@
                 <img src="/account.png" alt="logged in">
             {/if}
         </div>
-        <a href="/login">Se connecter</a>
-        <a href="/petitions/create">Créer une pétition</a>
-        <a href="/petitions">Pétitions</a>
-        <a href="/">Home</a>
         <div class="logout">
             {#if logged_in === true}
                 <a href="/sign-out" id="logout" on:click={sign_out}>Se déconnecter</a>
+            {:else}
+                <a href="/login">Se connecter</a>
             {/if}
         </div>
+        {#if logged_in === true}
+            <a href="/petitions/create">Créer une pétition</a>
+        {/if}
+        <a href="/petitions">Pétitions</a>
     </div>
 </div>
 
 <style>
     /* Add a black background color to the top navigation */
     .navbar {
-        background-color: rgba(51, 51, 51, 0.85);
+        background-color: #f8fd00;
         overflow: hidden;
     }
 
     /* Style the links inside the navigation bar */
     .links a, .status {
         float: right;
-        color: #f2f2f2;
+        color: black;
         text-align: left;
         padding: 14px 16px;
         text-decoration: none;
+        font-weight: 700;
+        text-transform: uppercase;
         font-size: 17px;
     }
 
     /* Change the color of links on hover */
     .links a:hover {
-        background-color: #ddd;
+        background-color: #00ffa8;
         color: black;
     }
 
@@ -64,9 +76,10 @@
     }
 
     .icon img {
-        width: 25px;
-        height: 25px;
+        width: 40px;
+        height: 40px;
         margin: 10px;
+        margin-top: 7px;
         padding: 0;
         position: absolute;
     }
@@ -75,7 +88,7 @@
         width: 25px;
         height: 25px;
         margin-right: 10px;
-        margin-bottom: 0;
+        margin-bottom: o;
         padding: 0;
         position: static;
     }

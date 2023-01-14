@@ -12,21 +12,28 @@
 <style>
 
     @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700,800,900');
-    
+
     * {
         font-family: 'Poppins', sans-serif;
     }
 
     :global(body) {
-        background-image: url("/background-mesh.png");
-        background-repeat: no-repeat;
-        background-position: center;
-        background-attachment: fixed;
-        background-size: cover;
+        background-color: #c900c9;
         height: 100vh;
         margin: 0;
         padding: 0;
-        backdrop-filter: brightness(130%) blur(5px) saturate(20%);
+        color: #212121;
+    }
+
+    :global(button) {
+        padding: 12px;
+        background-color: #3bb43e;
+        font-size: 100%;
+        font-weight: 600;
+        border-radius: 10px;
+        border: black 1px solid;
+        box-shadow: black 5px 5px;
+        cursor: pointer;
     }
 
 </style>

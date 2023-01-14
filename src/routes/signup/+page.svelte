@@ -83,7 +83,11 @@
     .username {
         display: inline;
         align-items: center;
-        margin-right: 100px;
+        margin-right: 93px;
+    }
+
+    .username label {
+        margin-right: 0;
     }
 
     .email {
@@ -116,7 +120,6 @@
     label {
         margin-left: 100px;
         margin-right: 10px;
-        text-shadow: 0 0 1px #000;
     }
 
     input {
@@ -127,18 +130,6 @@
     }
 
     button {
-        background-color: #4CAF50;
-        border-color: #000;
-        color: white;
-        padding: 15px 32px;
-        text-align: center;
-        text-decoration: none;
-        display: inline-block;
-        font-size: 16px;
         margin: 4px 2px;
-        cursor: pointer;
-        box-shadow: 4px 5px 0 #000;
-        border-radius: 10px;
-        text-shadow: 1px 1px 1px #000;
     }
 </style>
