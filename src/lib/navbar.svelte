@@ -2,6 +2,10 @@
 <script>
     import { pb } from "$lib/auth.js"
     let logged_in = pb.authStore.isValid
+
+    function sign_out(){
+        pb.authStore.clear()
+    }
 </script>
 <div class="navbar">
     <div class="icon">
@@ -14,6 +18,7 @@
         <a href="/">Home</a>
     </div>
 </div>
+<button on:click={sign_out}>sign out</button>
 
 <style>
     /* Add a black background color to the top navigation */
