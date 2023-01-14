@@ -30,5 +30,6 @@
 
     h1 {
         margin-top: 50px;
+        color: rgb(44, 1, 35)
     }
 </style>

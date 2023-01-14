@@ -18,8 +18,12 @@
     }
 
     :global(body) {
-        background-color: #c900c9;
         height: 100vh;
+        background-image: url("background.png");
+        background-attachment: fixed;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
         margin: 0;
         padding: 0;
         color: #212121;
