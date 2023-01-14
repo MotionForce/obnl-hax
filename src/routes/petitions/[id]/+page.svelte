@@ -10,7 +10,6 @@
         creator: "",
         signers: JSON.parse("[]"),
     }
-    let signed = false;
     let failed_fetch = false;
     let failed_sign = false;
     let already_signed = false;
@@ -36,6 +35,7 @@
                 already_signed = true
                 return
             }
+            petition.signers.push(pb.authStore.model.name)
             await pb.collection("petitions").update(`${data.post.id}`, {
                 title: petition.title,
                 content: petition.content,
@@ -62,9 +62,7 @@
     <div class="title">
         <div class="title-h1-group">
             <h1>{petition.title}</h1>
-            {#if !signed}
                 <button on:click={sign}>{$_('petitions.v.sign').replace("petitions.v.", "")}</button>
-            {/if}
         </div>
         <p>{$_('petitions.v.createdBy').replace("petitions.v.", "")}{petition.creator}</p>
         <p>{parseDate(petition.created)}</p>
@@ -82,9 +80,7 @@
     </div>
     <div class="buttons">
         <button on:click={fetch_petition}>{$_('petitions.v.refresh').replace("petitions.v.", "")}</button>
-        {#if !signed}
             <button on:click={sign}>{$_('petitions.v.sign').replace("petitions.v.", "")}</button>
-        {/if}
     </div>
     <div>
         {#if failed_fetch}
