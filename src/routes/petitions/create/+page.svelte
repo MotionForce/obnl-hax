@@ -12,7 +12,7 @@
                 title: title,
                 content: content,
                 creator_name: pb.authStore.model.name,
-                signers: []
+                petition_signers: []
             })
         }catch(err){
             failed = true

@@ -1,7 +1,5 @@
 <script>
     import Navbar from "$lib/navbar.svelte";
-
-    let year = new Date().getFullYear();
 </script>
 
 <main>
