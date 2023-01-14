@@ -43,7 +43,7 @@
 </script>
 
 <div class="head">
-    <h1>Nouvelles:</h1>
+    <h1>Blog:</h1>
     {#if _admin && logged_in}
         <button on:click={() => window.location.href = "/blog/create"}>Créer un post</button>
         <p></p>
