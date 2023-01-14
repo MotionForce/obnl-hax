@@ -1,4 +1,8 @@
 <!--suppress ALL -->
+<script>
+    import { pb } from "$lib/auth.js"
+    let logged_in = pb.authStore.isValid
+</script>
 <div class="navbar">
     <div class="icon">
         <img src="/favicon.png" alt="WIP">
