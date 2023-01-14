@@ -28,11 +28,4 @@
         backdrop-filter: brightness(130%) blur(5px) saturate(20%);
     }
 
-    footer {
-        bottom: 0;
-        left: 50%;
-        text-align: center;
-        margin-top: 2em;
-    }
-
 </style>
