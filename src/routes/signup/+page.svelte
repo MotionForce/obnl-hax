@@ -1,4 +1,3 @@
-
 <script>
     import {pb} from "$lib/auth.js"
 
@@ -8,6 +7,7 @@
     let passwordConfirm = ""
 
     let failed = false
+    let er = ""
 
     async function signup(){
         try{
@@ -19,6 +19,11 @@
             })
         }catch(err){
             failed = true
+            return err
+        }
+        if (!failed){
+            window.location.href = "/login"
+            return "Success"
         }
     }
 </script>
@@ -47,7 +52,12 @@
         {/if}
     </div>
     <div class="submit">
-        <button on:click={signup}>S'inscrire</button>
+        <button on:click={er = signup}>S'inscrire</button>
+    </div>
+    <div class="error">
+        {#if failed}
+            <p>{er}</p>
+        {/if}
     </div>
 </div>
 
