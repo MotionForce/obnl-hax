@@ -9,10 +9,10 @@
         creator: "",
         signers: JSON.parse("[]"),
     }
-    let signed = false;
-    let failed_fetch = false;
-    let failed_sign = false;
-    let already_signed = false;
+    let signed = false
+    let failed_fetch = false
+    let failed_sign = false
+    let already_signed = false
 
     async function fetch_petition(){
         try{

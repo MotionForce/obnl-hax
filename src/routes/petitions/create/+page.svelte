@@ -4,17 +4,18 @@
     let title = ""
     let content = ""
 
+    let failedMessage = ""
     let failed = false
 
-    async function publish_petition(){
-        try{
-            await pb.collection("petitions").create({
+    async function publish_petition() {
+        try {
+            const res = await pb.collection("petitions").create({
                 title: title,
                 content: content,
                 creator_name: pb.authStore.model.name,
                 signers: JSON.parse("[]")
             })
-        }catch(err){
+        } catch (err) {
             failed = true
         }
     }
@@ -31,7 +32,12 @@
         <textarea name="content" bind:value={content}></textarea>
     </div>
     <div class="submit">
-        <button on:click={publish_petition}>Publier</button>
+        {#if content.length < 100 || title.length < 10}
+            <p class="error">Le titre doit être au moins 10 caractères de long et le contenu doit faire au moins 100
+                caractères.</p>
+        {:else}
+            <a href="/petitions" on:click={publish_petition} id="submit-button">Publier</a>
+        {/if}
     </div>
 </div>
 
@@ -46,34 +52,46 @@
         border-radius: 15px;
         padding-bottom: 10px;
     }
+
     .title {
         display: inline-flex;
         align-items: center;
+        margin-right: 260px;
     }
+
     .title label {
         margin-right: 20px;
     }
+
     .content {
         margin-top: 20px;
         margin-bottom: 20px;
+        margin-left: 50px;
         display: inline-flex;
         align-items: center;
     }
+
     .content textarea {
         width: 500px;
         height: 200px;
         margin-left: 20px;
+        border-radius: 10px;
     }
+
     .submit {
         display: inline-flex;
         align-items: center;
     }
+
     p {
         margin-right: 10px;
     }
+
     input {
         border-radius: 5px;
+        height: 25px;
     }
+
     button {
         background-color: #4CAF50;
         border: none;
@@ -86,5 +104,10 @@
         margin: 4px 2px;
         cursor: pointer;
         border-radius: 10px;
+    }
+
+    .error {
+        margin-top: 0;
+        font-size: smaller;
     }
 </style>
