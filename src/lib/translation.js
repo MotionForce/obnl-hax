@@ -14,6 +14,7 @@ export default {
             petitions: 'Petitions',
             logout: 'Logout',
             login: 'Login',
+            news: 'News',
         },
         blog: {
             title: 'Posts:',
@@ -93,6 +94,7 @@ export default {
             petitions: 'Pétitions',
             logout: 'Se déconnecter',
             login: 'Se connecter',
+            news: 'Actualités',
         },
         blog: {
             title: 'Articles:',
@@ -153,7 +155,7 @@ export default {
             }
         },
         news: {
-            title: 'Nouvelles:',
+            title: 'Actualités:',
             read: 'Lire sur ',
         }
     },
