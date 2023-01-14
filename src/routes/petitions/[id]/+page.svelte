@@ -11,20 +11,38 @@
 
     async function fetch_list() {
         try {
+            let returned = []
             const list = await pb.collection("petitions").getList()
             for (const element of list.items) {
-                petition_list.push({
-                    title: element.title,
-                    content: element.content,
-                    creator_name: element.creator_name,
-                    id: element.id
-                })
+                let t = {title: element.title, content: element.content, creator_name: element.creator_name, id: element.id}
+                // petition_list.push({
+                //     title: element.title,
+                //     content: element.content,
+                //     creator_name: element.creator_name,
+                //     id: element.id
+                // })
+                returned.push(t)
             }
+            console.log(returned.length)
+            console.log(returned)
+            return returned
         } catch (err) {
             console.log(err)
             failed = true;
         }
     }
+    petition_list.push({
+        title: "test",
+        content: "test",
+        creator_name: "test",
+        id: "test"
+    })
+    petition_list.push({
+        title: "test2",
+        content: "test2",
+        creator_name: "test2",
+        id: "test2"
+    })
 
     for (const element of petition_list) {
         console.log("test")
@@ -34,7 +52,11 @@
         }
     }
 
-    fetch_list()
+    let fetch_ls = fetch_list()
+    console.log(fetch_ls)
+    for (const element of fetch_ls) {
+        petition_list.push(element)
+    }
 </script>
 
 <p>{current_petition}</p>
