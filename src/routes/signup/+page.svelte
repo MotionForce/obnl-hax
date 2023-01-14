@@ -12,10 +12,10 @@
     async function signup(){
         try{
             const authData = await pb.collection("users").create({
-                name: "dfjpiqnflwofh",
-                email: "what@example.com",
-                password: "12345678",
-                passwordConfirm: "12345678"
+                name: name,
+                email: email,
+                password: password,
+                passwordConfirm: passwordConfirm
             })
         }catch(err){
             failed = true
