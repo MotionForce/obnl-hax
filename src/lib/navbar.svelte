@@ -28,7 +28,7 @@
         <a href="/">Home</a>
         <div class="logout">
             {#if logged_in === true}
-                <a href="/logout" id="logout" on:click={sign_out}>Se déconnecter</a>
+                <a href="/sign-out" id="logout" on:click={sign_out}>Se déconnecter</a>
             {/if}
         </div>
     </div>
