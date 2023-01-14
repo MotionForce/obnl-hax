@@ -1,3 +1,4 @@
+
 <script>
     import {pb} from "$lib/auth.js"
 
@@ -6,14 +7,19 @@
     let password = ""
     let passwordConfirm = ""
 
-    async function signup() {
-        const authData = await pb.collection("users").create({
-            name: "dfjpiqnflwofh",
-            email: "what@example.com",
-            password: "12345678",
-            passwordConfirm: "12345678"
-        })
-        console.log(pb.authStore.isValid)
+    let failed = false
+
+    async function signup(){
+        try{
+            const authData = await pb.collection("users").create({
+                name: "dfjpiqnflwofh",
+                email: "what@example.com",
+                password: "12345678",
+                passwordConfirm: "12345678"
+            })
+        }catch(err){
+            failed = true
+        }
     }
 </script>
 
