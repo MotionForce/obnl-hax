@@ -20,6 +20,7 @@
         background-image: url("/background-mesh.png");
         background-repeat: no-repeat;
         background-position: center;
+        background-attachment: fixed;
         background-size: cover;
         height: 100vh;
         margin: 0;
