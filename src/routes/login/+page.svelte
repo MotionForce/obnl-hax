@@ -6,10 +6,10 @@
     let failed = false
 
     async function login() {
-        try{
+        try {
             const authData = await pb.collection("users").authWithPassword(email, password)
             console.log(pb.authStore.isValid)
-        }catch(err){
+        } catch (err) {
             failed = true
         }
     }
@@ -26,7 +26,9 @@
         <input type="password" bind:value={password}>
     </div>
     <div class="submit">
-        <a href="/"><button on:click={login}>Se connecter</button></a>
+        <a href="/">
+            <button on:click={login}>Se connecter</button>
+        </a>
     </div>
     <div class="sign-up">
         <p id="sign-up">Pas encore de compte ? <a href="/signup">Inscrivez-vous</a></p>
@@ -40,6 +42,7 @@
         align-items: center;
         margin-top: 100px;
         font-size: x-large;
+        color: #2c2c2c;
     }
 
     .email {
@@ -50,6 +53,7 @@
     .password {
         display: inline-flex;
         align-items: center;
+        margin-left: 46px;
     }
 
     .submit {
@@ -63,11 +67,14 @@
 
     input {
         border-radius: 5px;
+        width: 150px;
+        height: 25px;
+        box-shadow: black 5px 5px;
     }
 
     button {
         background-color: #4CAF50;
-        border: none;
+        border-color: #000;
         color: white;
         padding: 15px 32px;
         text-align: center;
@@ -76,11 +83,17 @@
         font-size: 16px;
         margin: 4px 2px;
         cursor: pointer;
+        box-shadow: 4px 5px 0 #000;
         border-radius: 10px;
+        text-shadow: 1px 1px 1px #000;
     }
 
     .sign-up {
         font-size: medium;
+    }
+
+    label {
+        text-shadow: 0 0 1px #000;
     }
 
 </style>

@@ -9,8 +9,8 @@
     let failed = false
     let er = ""
 
-    async function signup(){
-        try{
+    async function signup() {
+        try {
             const authData = await pb.collection("users").create({
                 name: name,
                 email: email,
@@ -18,11 +18,11 @@
                 passwordConfirm: passwordConfirm,
                 is_admin: false,
             })
-        }catch(err){
+        } catch (err) {
             failed = true
             return err
         }
-        if (!failed){
+        if (!failed) {
             window.location.href = "/login"
             return "Success"
         }
@@ -63,34 +63,45 @@
 </div>
 
 <style>
-    h1{
+    h1 {
         font-weight: 900;
     }
+
     .sign-up-form {
         display: flex;
         flex-direction: column;
         align-items: center;
         margin-top: 100px;
         font-size: x-large;
+        color: #2c2c2c;
     }
 
     .sign-up-form > * {
         margin-top: 10px;
     }
 
+    .username {
+        display: inline;
+        align-items: center;
+        margin-right: 100px;
+    }
+
     .email {
         display: inline-flex;
         align-items: center;
+        margin-left: 15px;
     }
 
     .password {
         display: inline-flex;
         align-items: center;
+        margin-right: 50px;
     }
 
     .confirm-password {
         display: flex;
         align-items: center;
+        margin-right: 210px;
     }
 
     .confirm-password-text {
@@ -103,11 +114,16 @@
     }
 
     label {
+        margin-left: 100px;
         margin-right: 10px;
+        text-shadow: 0 0 1px #000;
     }
 
     input {
         border-radius: 5px;
+        width: 150px;
+        height: 25px;
+        box-shadow: black 5px 5px;
     }
 
     button {
@@ -121,7 +137,8 @@
         font-size: 16px;
         margin: 4px 2px;
         cursor: pointer;
-        box-shadow: 4px 5px 0px #000;
+        box-shadow: 4px 5px 0 #000;
         border-radius: 10px;
+        text-shadow: 1px 1px 1px #000;
     }
 </style>
